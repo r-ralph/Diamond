@@ -240,6 +240,23 @@ namespace Diamond.Init
         public static readonly Block.Block RedNetherBrick;
         public static readonly Block.Block BoneBlock;
         public static readonly Block.Block StructureVoid;
+        public static readonly Block.Block Observer;
+        public static readonly Block.Block WhiteShulkerBox;
+        public static readonly Block.Block OrangeShulkerBox;
+        public static readonly Block.Block MagentaShulkerBox;
+        public static readonly Block.Block LightBlueShulkerBox;
+        public static readonly Block.Block YellowShulkerBox;
+        public static readonly Block.Block LimeShulkerBox;
+        public static readonly Block.Block PinkShulkerBox;
+        public static readonly Block.Block GrayShulkerBox;
+        public static readonly Block.Block SilverShulkerBox;
+        public static readonly Block.Block CyanShulkerBox;
+        public static readonly Block.Block PurpleShulkerBox;
+        public static readonly Block.Block BlueShulkerBox;
+        public static readonly Block.Block BrownShulkerBox;
+        public static readonly Block.Block GreenShulkerBox;
+        public static readonly Block.Block RedShulkerBox;
+        public static readonly Block.Block BlackShulkerBox;
         public static readonly Block.Block StructureBlock;
 
         static Blocks()
@@ -462,6 +479,23 @@ namespace Diamond.Init
             RedNetherBrick = new BlockRedNetherBrick();
             BoneBlock = new BlockBone();
             StructureVoid = new BlockStructureVoid();
+            Observer = new BlockObserver();
+            WhiteShulkerBox = new BlockShulkerBoxWhite();
+            OrangeShulkerBox = new BlockShulkerBoxOrange();
+            MagentaShulkerBox = new BlockShulkerBoxMagenta();
+            LightBlueShulkerBox = new BlockShulkerBoxLightBlue();
+            YellowShulkerBox = new BlockShulkerBoxYellow();
+            LimeShulkerBox = new BlockShulkerBoxLime();
+            PinkShulkerBox = new BlockShulkerBoxPink();
+            GrayShulkerBox = new BlockShulkerBoxGray();
+            SilverShulkerBox = new BlockShulkerBoxSilver();
+            CyanShulkerBox = new BlockShulkerBoxCyan();
+            PurpleShulkerBox = new BlockShulkerBoxPurple();
+            BlueShulkerBox = new BlockShulkerBoxBlue();
+            BrownShulkerBox = new BlockShulkerBoxBrown();
+            GreenShulkerBox = new BlockShulkerBoxGreen();
+            RedShulkerBox = new BlockShulkerBoxRed();
+            BlackShulkerBox = new BlockShulkerBoxBlack();
             StructureBlock = new BlockStructure();
         }
     }
