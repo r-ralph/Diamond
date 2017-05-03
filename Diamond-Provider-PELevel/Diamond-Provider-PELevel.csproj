@@ -3,14 +3,16 @@
     <TargetFramework>netstandard1.4</TargetFramework>
     <Authors>Ralph</Authors>
     <Company />
-    <Description>Minecraft world wrapper for .NET Standard</Description>
+    <Description>Minecraft world wrapper for .NET Standard
+PE-Level format world loader</Description>
     <Copyright>Copyright (c) 2017 Ralph (Tamaki Hidetsugu)</Copyright>
     <PackageProjectUrl>https://github.com/r-ralph/Diamond</PackageProjectUrl>
     <RepositoryUrl>https://github.com/r-ralph/Diamond</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageLicenseUrl>https://github.com/r-ralph/Diamond/blob/master/LICENSE</PackageLicenseUrl>
+    <RootNamespace>Diamond</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="10.4.0" />
+    <ProjectReference Include="..\Diamond\Diamond.csproj" />
   </ItemGroup>
 </Project>
