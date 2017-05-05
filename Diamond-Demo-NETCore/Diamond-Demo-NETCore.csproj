@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <RootNamespace>Diamond.Demo.NETCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diamond-Provider-Anvil\Diamond-Provider-Anvil.csproj" />
+    <ProjectReference Include="..\Diamond-Provider-PELevel\Diamond-Provider-PELevel.csproj" />
+    <ProjectReference Include="..\Diamond-Provider-Remote\Diamond-Provider-Remote.csproj" />
+    <ProjectReference Include="..\Diamond\Diamond.csproj" />
+  </ItemGroup>
+
+</Project>
