@@ -10,8 +10,11 @@ Anvil format world loader</Description>
     <RepositoryUrl>https://github.com/r-ralph/Diamond</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageLicenseUrl>https://github.com/r-ralph/Diamond/blob/master/LICENSE</PackageLicenseUrl>
-    <RootNamespace>Diamond</RootNamespace>
+    <RootNamespace>Diamond.Anvil</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NBT.Standard" Version="1.0.0" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Diamond\Diamond.csproj" />
   </ItemGroup>

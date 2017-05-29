@@ -1,16 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <RootNamespace>Diamond.Demo.NETCore</RootNamespace>
+    <RootNamespace>Demo.NETCore</RootNamespace>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Compile Remove="testdata\New World\**" />
+    <EmbeddedResource Remove="testdata\New World\**" />
+    <None Remove="testdata\New World\**" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Diamond-Provider-Anvil\Diamond-Provider-Anvil.csproj" />
     <ProjectReference Include="..\Diamond-Provider-PELevel\Diamond-Provider-PELevel.csproj" />
     <ProjectReference Include="..\Diamond-Provider-Remote\Diamond-Provider-Remote.csproj" />
     <ProjectReference Include="..\Diamond\Diamond.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Folder Include="testdata\anvil_world\data" />
+    <Folder Include="testdata\anvil_world\playerdata" />
+    <Folder Include="testdata\anvil_world\region" />
+    <Folder Include="testdata\anvil_world\stats" />
+  </ItemGroup>
 </Project>
