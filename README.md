@@ -1,4 +1,4 @@
-# LevelDB.Standard
+# Diamond
 
 [![Build Status](https://travis-ci.org/r-ralph/Diamond.svg?branch=master)](https://travis-ci.org/r-ralph/Diamond)
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
