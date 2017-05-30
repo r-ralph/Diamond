@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
     <Authors>Ralph</Authors>
@@ -13,13 +12,10 @@ Remote world loader</Description>
     <RepositoryType>Git</RepositoryType>
     <RootNamespace>Diamond</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="WebSocket4Net" Version="0.15.0-beta6" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Diamond\Diamond.csproj" />
   </ItemGroup>
-
 </Project>
