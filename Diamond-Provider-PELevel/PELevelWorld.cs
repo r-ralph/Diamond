@@ -22,6 +22,7 @@ using System.IO.Compression;
 
 namespace Diamond
 {
+    /*
     public class PELevelWorld : World
     {
         private PELevelWorld(Stream stream)
@@ -57,4 +58,5 @@ namespace Diamond
             throw new System.NotImplementedException();
         }
     }
+    */
 }

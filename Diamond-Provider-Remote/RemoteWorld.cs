@@ -18,6 +18,7 @@
 
 namespace Diamond
 {
+    /*
     public class RemoteWorld : World
     {
         private RemoteWorld()
@@ -39,4 +40,5 @@ namespace Diamond
             throw new System.NotImplementedException();
         }
     }
+    */
 }

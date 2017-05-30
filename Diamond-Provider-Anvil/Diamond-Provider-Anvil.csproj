@@ -13,7 +13,7 @@ Anvil format world loader</Description>
     <RootNamespace>Diamond.Anvil</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NBT.Standard" Version="1.0.0" />
+    <PackageReference Include="NBT.Standard" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Diamond\Diamond.csproj" />
