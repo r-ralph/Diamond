@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
+using Diamond;
 using Diamond.Anvil.Init;
 
 namespace Demo.NETCore
 {
     public class Program
     {
+        private static Level _level;
+        private static Mode _mode = Mode.Root;
+
         public static void Main(string[] args)
         {
             int n;
@@ -36,16 +41,114 @@ namespace Demo.NETCore
                     Console.WriteLine("Not implemented yet!");
                     break;
             }
+            Start();
+            Console.WriteLine("Finished");
         }
 
         private static void LoadAnvilFileFormat()
         {
             var path = new DirectoryInfo(Path.Combine(new DirectoryInfo(".").FullName, "testdata", "anvil_world"));
-            var level = Anvil.LoadFrom(path);
+            _level = Anvil.LoadFrom(path);
             Console.WriteLine("Load completed.");
-            Console.WriteLine(level.LevelName);
-            
-            Console.Read();
+        }
+
+        private static void Start()
+        {
+            while (true)
+            {
+                switch (_mode)
+                {
+                    case Mode.Exit:
+                        return;
+                    case Mode.Root:
+                        ProcessRootInput();
+                        break;
+                    case Mode.Level:
+                        ProcessLevelInput();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        private static void ProcessRootInput()
+        {
+            Console.Write("> ");
+            var input = Console.ReadLine();
+            switch (input.ToLower())
+            {
+                case "level":
+                    _mode = Mode.Level;
+                    break;
+                case "exit":
+                    _mode = Mode.Exit;
+                    break;
+                case "help":
+                    Console.WriteLine("level: Go to level info viewer.");
+                    Console.WriteLine("help: Show help.");
+                    Console.WriteLine("exit: Finish this program.");
+                    break;
+                default:
+                    Console.WriteLine("Type \"help\" to show help.");
+                    break;
+            }
+        }
+
+        private static void ProcessLevelInput()
+        {
+            Console.Write("Level > ");
+            var input = Console.ReadLine();
+            var inputArr = input.Split(' ');
+            switch (inputArr[0].ToLower())
+            {
+                case "name":
+                    Console.WriteLine($"Level Name: {_level.LevelName}");
+                    break;
+                case "seed":
+                    Console.WriteLine($"Seed value: {_level.RandomSeed}");
+                    break;
+                case "prop":
+                    if (inputArr.Length != 2)
+                    {
+                        Console.WriteLine("Wrong argument.");
+                    }
+                    else
+                    {
+                        var propName = inputArr[1];
+                        var propertyInfo = _level.GetType().GetProperty(propName);
+                        if (propertyInfo == null)
+                        {
+                            Console.WriteLine($"Unknown property: {propName}");
+                        }
+                        else
+                        {
+                            var value = propertyInfo.GetValue(_level);
+                            Console.WriteLine($"{propName}: {value}");
+                        }
+                    }
+                    break;
+                case "exit":
+                    _mode = Mode.Root;
+                    break;
+                case "help":
+                    Console.WriteLine("name: Print this level's name.");
+                    Console.WriteLine("seed: Print this level's seed value.");
+                    Console.WriteLine("prop <Property>: Show assiciated property value.");
+                    Console.WriteLine("help: Show help.");
+                    Console.WriteLine("exit: Exit from level info viewer.");
+                    break;
+                default:
+                    Console.WriteLine("Type \"help\" to show help.");
+                    break;
+            }
+        }
+
+        private enum Mode
+        {
+            Exit,
+            Root,
+            Level
         }
     }
 }
