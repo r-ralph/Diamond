@@ -37,6 +37,7 @@ namespace Diamond
         public abstract long DayTime { get; }
         public abstract byte Difficulty { get; }
         public abstract bool DifficultyLocked { get; }
+        public abstract GameRules GameRules { get; }
         public abstract int GameType { get; }
         public abstract string GeneratorName { get; }
         public abstract string GeneratorOptions { get; }

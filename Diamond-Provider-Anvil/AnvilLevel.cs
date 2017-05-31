@@ -44,6 +44,7 @@ namespace Diamond.Anvil
         private long _dayTime;
         private byte _difficulty;
         private bool _difficultyLocked;
+        private GameRules _gameRuleses;
         private int _gameType;
         private string _generatorName;
         private string _generatorOptions;
@@ -88,6 +89,7 @@ namespace Diamond.Anvil
         public override long DayTime => _dayTime;
         public override byte Difficulty => _difficulty;
         public override bool DifficultyLocked => _difficultyLocked;
+        public override GameRules GameRules => _gameRuleses;
         public override int GameType => _gameType;
         public override string GeneratorName => _generatorName;
         public override string GeneratorOptions => _generatorOptions;
@@ -133,6 +135,7 @@ namespace Diamond.Anvil
             }
             var level = document.DocumentRoot;
             var tag = level.GetCompound(Constants.LevelDatTagNameData);
+            _gameRuleses = new AnvilGameRules(tag);
             _allowCommands = tag.GetBooleanValue(Constants.LevelDatTagNameAllowCommands);
             _borderCenterX = tag.GetDouble(Constants.LevelDatTagNameBorderCenterX).Value;
             _borderCenterZ = tag.GetDouble(Constants.LevelDatTagNameBorderCenterZ).Value;

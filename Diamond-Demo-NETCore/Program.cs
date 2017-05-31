@@ -66,6 +66,9 @@ namespace Demo.NETCore
                     case Mode.Level:
                         ProcessLevelInput();
                         break;
+                    case Mode.LevelGameRules:
+                        ProcessLevelGameRuleInput();
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -128,12 +131,57 @@ namespace Demo.NETCore
                         }
                     }
                     break;
+                case "gamerule":
+                    _mode = Mode.LevelGameRules;
+                    break;
                 case "exit":
                     _mode = Mode.Root;
                     break;
                 case "help":
+                    Console.WriteLine("gamerule: Go to game rule viewer mode.");
                     Console.WriteLine("name: Print this level's name.");
                     Console.WriteLine("seed: Print this level's seed value.");
+                    Console.WriteLine("prop <Property>: Show assiciated property value.");
+                    Console.WriteLine("help: Show help.");
+                    Console.WriteLine("exit: Exit from level info viewer.");
+                    break;
+                default:
+                    Console.WriteLine("Type \"help\" to show help.");
+                    break;
+            }
+        }
+
+        private static void ProcessLevelGameRuleInput()
+        {
+            Console.Write("Level/GameRule > ");
+            var input = Console.ReadLine();
+            var inputArr = input.Split(' ');
+            switch (inputArr[0].ToLower())
+            {
+                case "prop":
+                    if (inputArr.Length != 2)
+                    {
+                        Console.WriteLine("Wrong argument.");
+                    }
+                    else
+                    {
+                        var propName = inputArr[1];
+                        var propertyInfo = _level.GameRules.GetType().GetProperty(propName);
+                        if (propertyInfo == null)
+                        {
+                            Console.WriteLine($"Unknown property: {propName}");
+                        }
+                        else
+                        {
+                            var value = propertyInfo.GetValue(_level.GameRules);
+                            Console.WriteLine($"{propName}: {value}");
+                        }
+                    }
+                    break;
+                case "exit":
+                    _mode = Mode.Level;
+                    break;
+                case "help":
                     Console.WriteLine("prop <Property>: Show assiciated property value.");
                     Console.WriteLine("help: Show help.");
                     Console.WriteLine("exit: Exit from level info viewer.");
@@ -148,7 +196,8 @@ namespace Demo.NETCore
         {
             Exit,
             Root,
-            Level
+            Level,
+            LevelGameRules
         }
     }
 }
